@@ -2,8 +2,6 @@ package com.kovalenko.qoltweaks.features;
 
 import com.kovalenko.qoltweaks.config.ModConfig;
 import com.kovalenko.qoltweaks.core.Feature;
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
@@ -33,6 +31,7 @@ public class TorchPlacement implements Feature {
 
     @SubscribeEvent
     public void onPlayerTick(TickEvent.PlayerTickEvent event) {
+        if (!isEnabled()) return;
         if (event.phase != TickEvent.Phase.END || event.player.level.isClientSide) return;
 
         PlayerEntity player = event.player;
