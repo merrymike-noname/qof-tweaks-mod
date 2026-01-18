@@ -7,14 +7,10 @@ import net.minecraftforge.fml.common.Mod;
 import com.kovalenko.qoltweaks.config.ModConfig;
 import net.minecraftforge.fml.config.ModConfig.Type;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-
 @Mod(QoLTweaks.MOD_ID)
 public class QoLTweaks
 {
     public static final String MOD_ID = "qoltweaks";
-    private static final Logger LOGGER = LogManager.getLogger();
 
     public QoLTweaks() {
 
@@ -30,5 +26,6 @@ public class QoLTweaks
         manager.register(new VeinMine());
         manager.register(new ToolRestock());
         manager.register(new TorchPlacement());
+        manager.register(new AutoReplant());
     }
 }
