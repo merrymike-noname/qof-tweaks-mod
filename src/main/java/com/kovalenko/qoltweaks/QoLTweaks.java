@@ -1,6 +1,7 @@
 package com.kovalenko.qoltweaks;
 
 import com.kovalenko.qoltweaks.core.FeatureManager;
+import com.kovalenko.qoltweaks.features.DoubleDoorsOpener;
 import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
 import com.kovalenko.qoltweaks.config.ModConfig;
@@ -24,6 +25,6 @@ public class QoLTweaks
 
         FeatureManager manager = new FeatureManager();
 
-        //manager.register(new DoubleDoorsFeature());
+        manager.register(new DoubleDoorsOpener());
     }
 }
