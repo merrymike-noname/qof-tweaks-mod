@@ -7,7 +7,7 @@ public class ModConfig {
 
     public static ForgeConfigSpec.BooleanValue TOOL_RESTOCK;
     public static ForgeConfigSpec.BooleanValue TORCH_PLACEMENT;
-    public static ForgeConfigSpec.BooleanValue VEIN_MINER;
+    public static ForgeConfigSpec.BooleanValue VEIN_MINE;
     public static ForgeConfigSpec.BooleanValue TREE_CHOP;
     public static ForgeConfigSpec.BooleanValue DOUBLE_DOORS;
     public static ForgeConfigSpec.BooleanValue AUTO_REPLANT;
@@ -25,9 +25,9 @@ public class ModConfig {
                 .comment("Automatically place torches in dark areas")
                 .define("torchPlacement", true);
 
-        VEIN_MINER = builder
+        VEIN_MINE = builder
                 .comment("Mine entire ore veins")
-                .define("veinMiner", true);
+                .define("veinMine", true);
 
         TREE_CHOP = builder
                 .comment("Chop down entire trees")

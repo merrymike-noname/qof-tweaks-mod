@@ -3,6 +3,7 @@ package com.kovalenko.qoltweaks;
 import com.kovalenko.qoltweaks.core.FeatureManager;
 import com.kovalenko.qoltweaks.features.DoubleDoorsOpener;
 import com.kovalenko.qoltweaks.features.TreeChop;
+import com.kovalenko.qoltweaks.features.VeinMine;
 import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
 import com.kovalenko.qoltweaks.config.ModConfig;
@@ -28,5 +29,6 @@ public class QoLTweaks
 
         manager.register(new DoubleDoorsOpener());
         manager.register(new TreeChop());
+        manager.register(new VeinMine());
     }
 }
