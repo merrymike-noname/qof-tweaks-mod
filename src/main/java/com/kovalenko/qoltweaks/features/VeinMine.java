@@ -105,13 +105,31 @@ public class VeinMine implements Feature {
                            ItemStack tool,
                            Set<BlockPos> vein) {
 
+        if (!(world instanceof net.minecraft.world.server.ServerWorld)) return;
+        net.minecraft.world.server.ServerWorld serverWorld = (net.minecraft.world.server.ServerWorld) world;
         for (BlockPos pos : vein) {
             BlockState state = world.getBlockState(pos);
+            Block block = state.getBlock();
+
             Block.dropResources(state, world, pos, null, player, tool);
+
+            int fortune = EnchantmentHelper.getItemEnchantmentLevel(Enchantments.BLOCK_FORTUNE, tool);
+            int silkTouch = EnchantmentHelper.getItemEnchantmentLevel(Enchantments.SILK_TOUCH, tool);
+
+            int exp = block.getExpDrop(state, serverWorld, pos, fortune, silkTouch);
+            if (exp > 0) {
+                block.popExperience(serverWorld, pos, exp);
+            }
+
+            state.spawnAfterBreak(serverWorld, pos, tool);
+
             world.removeBlock(pos, false);
             tool.hurtAndBreak(1, player, p ->
                     p.broadcastBreakEvent(player.getUsedItemHand())
             );
         }
+
+
     }
+
 }
